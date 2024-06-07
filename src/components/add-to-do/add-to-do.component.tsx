@@ -1,6 +1,11 @@
-function AddToDo({ setData, setNewTodo, setId }) {
+import { useState } from "react";
+import "./add-to-do.styles.scss";
+function AddToDo({ onData, onSetData }) {
+  const [id, setId] = useState(4);
+  const [newTodo, setNewTodo] = useState("");
+
   function handleApply() {
-    setData([...data, { id: id, text: newTodo, checked: false }]);
+    onSetData([...onData, { id: id, text: newTodo, checked: false }]);
     setNewTodo("");
     setId((prev) => prev + 1);
   }
@@ -17,3 +22,4 @@ function AddToDo({ setData, setNewTodo, setId }) {
     </div>
   );
 }
+export default AddToDo;
