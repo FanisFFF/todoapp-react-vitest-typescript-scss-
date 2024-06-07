@@ -11,8 +11,8 @@ export interface ChangeModeProps {
 const ChangeMode: FC<ChangeModeProps> = ({ onSetMode }) => {
   return (
     <div className="form_radio_group">
-      {MODES.map((mode) => (
-        <ChangeModeItem onMode={mode} onSetMode={onSetMode} />
+      {MODES.map((mode, i) => (
+        <ChangeModeItem onMode={mode} key={i} onSetMode={onSetMode} />
       ))}
     </div>
   );
