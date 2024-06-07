@@ -1,6 +1,11 @@
-import { ChangeEvent } from "react";
+import { ChangeEvent, FC } from "react";
+import { ChangeModeProps } from "../change-mode/change-mode.component";
 
-function ChangeModeItem({ onMode, onSetMode }) {
+interface ChangeModeItemProps extends ChangeModeProps {
+  onMode: string;
+}
+
+const ChangeModeItem: FC<ChangeModeItemProps> = ({ onMode, onSetMode }) => {
   function handleChange(e: ChangeEvent<HTMLInputElement>) {
     onSetMode(e.target.value);
   }
@@ -18,5 +23,5 @@ function ChangeModeItem({ onMode, onSetMode }) {
       </label>
     </div>
   );
-}
+};
 export default ChangeModeItem;

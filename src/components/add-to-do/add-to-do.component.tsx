@@ -1,6 +1,13 @@
-import { useState } from "react";
+import { FC, useState } from "react";
 import "./add-to-do.styles.scss";
-function AddToDo({ onData, onSetData }) {
+import { TodoItem } from "../../types/TodoItem";
+
+interface AddToDoProps {
+  onData: TodoItem[];
+  onSetData: (data: TodoItem[]) => void;
+}
+
+const AddToDo: FC<AddToDoProps> = ({ onData, onSetData }) => {
   const [id, setId] = useState(4);
   const [newTodo, setNewTodo] = useState("");
 
@@ -21,5 +28,5 @@ function AddToDo({ onData, onSetData }) {
       <button onClick={handleApply}>Apply</button>
     </div>
   );
-}
+};
 export default AddToDo;

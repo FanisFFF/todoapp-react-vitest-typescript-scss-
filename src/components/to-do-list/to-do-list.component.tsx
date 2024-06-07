@@ -1,6 +1,14 @@
+import { FC } from "react";
+import { TodoItem } from "../../types/TodoItem";
 import TodoElement from "../todo-element/todo-element.component";
 
-function ToDoList({ onData, onMode, onSetData }) {
+interface ToDoListProps {
+  onData: TodoItem[];
+  onMode: string;
+  onSetData: (data: TodoItem[]) => void;
+}
+
+const ToDoList: FC<ToDoListProps> = ({ onData, onMode, onSetData }) => {
   return onData
     .filter((el) => {
       if (onMode == "all") return el;
@@ -15,5 +23,5 @@ function ToDoList({ onData, onMode, onSetData }) {
         onData={onData}
       />
     ));
-}
+};
 export default ToDoList;
