@@ -27,8 +27,8 @@ const TodoElement: FC<TodoItemProps> = ({ data, onSetData, onData }) => {
         type="checkbox"
         checked={checked}
         onChange={() => handleChange(id)}
-        name=""
-        id=""
+        name={text}
+        id={String(id)}
       />
       <p style={{ textDecoration: checked ? "line-through" : "" }}>{text}</p>
     </div>
